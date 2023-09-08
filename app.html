@@ -85,7 +85,52 @@
       </nav>
     </header>
     <main class="flex-shrink-0">
-      <div class="container"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-6 border-end border-black">
+            <h1 class="border-bottom border-black">
+              Racecar: A Coding Project
+            </h1>
+            <p class="lead">
+              If you go fast enough, it's almost as if you're going
+              backwards!<br />
+              Racecar is a javascript project for practicing fundamentals and
+              this time we're reversing strings, removing special characters,
+              and checking for palindromes.
+            </p>
+            <h2 class="mt-5 border-bottom border-black">Instructions</h2>
+            <p>
+              Write a word or a sentence (or any kind of string of text) in the
+              input field and hit the button. Watch as the output of the string
+              becomes a direct reversal of what the input was, but only if it is
+              also a palindrome. That is to say, the same backwards as it is
+              forwards. <strong>Note</strong> that the program will ignore
+              spaces and special characters.
+            </p>
+          </div>
+          <div class="col-12 col-md-6">
+            <div>
+              <label for="inputString" class="form-label"
+                >Enter a word, sentence or any type of string of text:</label
+              >
+              <input id="inputString" type="text" class="form-control" />
+              <div class="text-end mt-2">
+                <button
+                  id="btnSubmit"
+                  type="button"
+                  class="btn btn-danger btn-lg"
+                >
+                  Green light!
+                </button>
+              </div>
+              <div class="mt-5">
+                <h3 class="border-bottom border-black">Results</h3>
+                <p id="results"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
     <footer class="footer mt-auto py-3 bg-dark fixed-bottom">
       <div class="container-fluid">
