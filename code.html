@@ -89,7 +89,7 @@
     <main class="flex-shrink-0">
       <div class="container">
         <h2 class="border-1 border-bottom border-dark">
-          The Code for Racecar is structured in XX functions.
+          The Code for Racecar is structured in 5 functions.
         </h2>
         <div id="accordionItemOne" class="accordion mt-2">
           <div class="accordion-item bg-secondary-subtle">
@@ -102,7 +102,7 @@
                 aria-controls="accordionPanelOne"
                 class="accordion-button bg-dark text-light"
               >
-                Function Name #1
+                getValue()
               </button>
             </h3>
             <div
@@ -113,17 +113,34 @@
                 <div class="row row-cols-1 row-cols-md-2">
                   <div class="col col-md-8">
                     <pre data-start="1"><code class="language-javascript">
-                            // Call Hello World!
-                            function HelloWorld() {
-                                alert('Hello World!');
-                            }                                            
+                      function getValue() {
+                        // Get the string from the user.
+                        let userString = document.getElementById('inputString').value;
+                    
+                        let userStringNoSpecial = removeSpecials(userString);
+                    
+                        let reversedString = reverseString(userStringNoSpecial);
+                    
+                        let palindromeChecked = checkPalindrome(
+                          userStringNoSpecial,
+                          reversedString
+                        );
+                    
+                        displayPalindrome(palindromeChecked);
+                      }                                            
                         </code></pre>
                   </div>
                   <div class="col col-md-4">
-                    <h5>HelloWorld()</h5>
+                    <h5>getValue()</h5>
                     <p>
-                      Hello World is a function that displays an alert with a
-                      message of "Hello World!"
+                      The function getValue() stores the string from the user
+                      input in a variable called userString.
+                    </p>
+                    <p>
+                      This function then calls the remaining functions in order
+                      of execution, to remove special characters, reverse the
+                      string, check if it's a palindrome or not, and finally
+                      display the string.
                     </p>
                   </div>
                 </div>
@@ -142,7 +159,7 @@
                 aria-controls="accordionPanelTwo"
                 class="accordion-button bg-dark text-light"
               >
-                Function Name #2
+                removeSpecials()
               </button>
             </h3>
             <div id="accordionPanelTwo" class="accordion-collapse collapse">
@@ -150,17 +167,174 @@
                 <div class="row row-cols-1 row-cols-md-2">
                   <div class="col col-md-8">
                     <pre data-start="5"><code class="language-javascript">
-                            // Call Hello World!
-                            function HelloWorld() {
-                                alert('Hello World!');
-                            }                                            
+                      function removeSpecials(userString) {
+                        // Remove Special characters and make the string lowercase.
+                        const noSpecials = userString.replace(/[^a-zA-Z]/g, '');
+                        const lowercase = noSpecials.toLowerCase();
+                    
+                        return lowercase;
+                      }                                            
                         </code></pre>
                   </div>
                   <div class="col col-md-4">
-                    <h5>HelloWorld()</h5>
+                    <h5>removeSpecials()</h5>
                     <p>
-                      Hello World is a function that displays an alert with a
-                      message of "Hello World!"
+                      The removeSpecials() function has the responsibility of
+                      removing special characters and spaces from the user
+                      input.
+                    </p>
+                    <p>
+                      In order to remove these characters, we use a regex
+                      pattern to whitelist a certain set of characters and use
+                      the replace() function on our userString and store the
+                      result in a new variable called noSpecials.
+                    </p>
+                    <p>
+                      Now we call the toLowerCase() function on the new
+                      noSpecials string and store it in a new variable called
+                      lowercase.
+                    </p>
+                    <p>Finally we return lowercase.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="accordionItemThree" class="accordion mt-1">
+          <div class="accordion-item bg-secondary-subtle">
+            <h3 class="accordion-header">
+              <button
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#accordionPanelThree"
+                aria-expanded="true"
+                aria-controls="accordionPanelThree"
+                class="accordion-button bg-dark text-light"
+              >
+                reverseString()
+              </button>
+            </h3>
+            <div id="accordionPanelThree" class="accordion-collapse collapse">
+              <div class="accordion-body">
+                <div class="row row-cols-1 row-cols-md-2">
+                  <div class="col col-md-8">
+                    <pre data-start="5"><code class="language-javascript">
+                      function reverseString(userStringNoSpecial) {
+                        let reversedString = '';
+                        // Reverse the string.
+                        for (let i = userStringNoSpecial.length - 1; i >= 0; i--) {
+                          reversedString += userStringNoSpecial[i];
+                        }
+                        return reversedString;
+                      }                                            
+                        </code></pre>
+                  </div>
+                  <div class="col col-md-4">
+                    <h5>reverseString()</h5>
+                    <p>
+                      The function reverseString() loops over the length of the
+                      new userStringNoSpecial, which has been regexed and
+                      lowercased in the previous function, and loops in reverse
+                      for the length of the string, and adds each character to a
+                      new string called reversedString.
+                    </p>
+                    <p>Finally we return the reversedString.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="accordionItemFour" class="accordion mt-1">
+          <div class="accordion-item bg-secondary-subtle">
+            <h3 class="accordion-header">
+              <button
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#accordionPanelFour"
+                aria-expanded="true"
+                aria-controls="accordionPanelFour"
+                class="accordion-button bg-dark text-light"
+              >
+                checkPalindrome()
+              </button>
+            </h3>
+            <div id="accordionPanelFour" class="accordion-collapse collapse">
+              <div class="accordion-body">
+                <div class="row row-cols-1 row-cols-md-2">
+                  <div class="col col-md-8">
+                    <pre data-start="5"><code class="language-javascript">
+                      function checkPalindrome(userStringNoSpecial, reversedString) {
+                        // Check string for palindromation (yes that's now a word).
+                        const palindromeMessage = `The word ${userStringNoSpecial} is a palindrome and becomes ${reversedString}!`;
+                        const errorMessage = `The word ${userStringNoSpecial} is not a palindrome, please try again with a different word or string.`;
+                    
+                        if (userStringNoSpecial == reversedString) {
+                          return palindromeMessage;
+                        } else {
+                          return errorMessage;
+                        }
+                      }                                            
+                        </code></pre>
+                  </div>
+                  <div class="col col-md-4">
+                    <h5>checkPalindrome()</h5>
+                    <p>
+                      In the function checkPalindrome() we take in the
+                      userStringNoSpecial and the reversedString as parameters.
+                    </p>
+                    <p>
+                      We declare two new messages and store them in variables
+                      for use in our if check.
+                    </p>
+                    <p>
+                      Finally we check if the strings (parameters) match and if
+                      they do, we return the palindromeMessage, and if it
+                      doesn't (else) we return an errorMessage, asking the user
+                      to try again.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="accordionItemFive" class="accordion mt-1">
+          <div class="accordion-item bg-secondary-subtle">
+            <h3 class="accordion-header">
+              <button
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#accordionPanelFive"
+                aria-expanded="true"
+                aria-controls="accordionPanelFive"
+                class="accordion-button bg-dark text-light"
+              >
+                displayPalindrome()
+              </button>
+            </h3>
+            <div id="accordionPanelFive" class="accordion-collapse collapse">
+              <div class="accordion-body">
+                <div class="row row-cols-1 row-cols-md-2">
+                  <div class="col col-md-8">
+                    <pre data-start="5"><code class="language-javascript">
+                      function displayPalindrome(palindromeChecked) {
+                        // Display the returned string.
+                        document.getElementById('results').innerText = palindromeChecked;
+                      }                                            
+                        </code></pre>
+                  </div>
+                  <div class="col col-md-4">
+                    <h5>displayPalindrome()</h5>
+                    <p>
+                      The function displayPalindrome() takes in the variable
+                      containing the message from our checkPalindrome()
+                      function, as a parameter.
+                    </p>
+                    <p>
+                      We use that parameter when inserting the text from this
+                      variable into the text of the "results" id on the page.
                     </p>
                   </div>
                 </div>
